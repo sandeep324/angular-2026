@@ -18,4 +18,8 @@ export class UserComponent {
     return 'assets/users/' + this.selectedUser.avatar;
   }
 
+  onUserSelected() {
+    console.log("Clicked")
+}
+
 }
