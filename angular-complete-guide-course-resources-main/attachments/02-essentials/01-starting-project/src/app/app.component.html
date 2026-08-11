@@ -3,16 +3,23 @@
 <main>
   <ul id = "users">
     <li>
-      <app-user [avatar]="DUMMY_USERS[0].avatar" [name]="DUMMY_USERS[0].name"></app-user>
+      <app-user [id]="DUMMY_USERS[0].id" [avatar]="DUMMY_USERS[0].avatar" 
+      [name]="DUMMY_USERS[0].name" (selectedUser)="userSelected($event)"></app-user>
     </li>
         <li>
-      <app-user [avatar]="DUMMY_USERS[1].avatar" [name]="DUMMY_USERS[1].name"></app-user>
+      <app-user [id]="DUMMY_USERS[1].id" [avatar]="DUMMY_USERS[1].avatar" 
+      [name]="DUMMY_USERS[1].name" (selectedUser)="userSelected($event)"></app-user>
     </li>
         <li>
-      <app-user [avatar]="DUMMY_USERS[2].avatar" [name]="DUMMY_USERS[2].name"></app-user>
+      <app-user [id]="DUMMY_USERS[2].id" [avatar]="DUMMY_USERS[2].avatar" 
+      [name]="DUMMY_USERS[2].name" (selectedUser)="userSelected($event)"></app-user>
     </li>
         <li>
-      <app-user [avatar]="DUMMY_USERS[3].avatar" [name]="DUMMY_USERS[3].name"></app-user>
+      <app-user [id]="DUMMY_USERS[3].id" [avatar]="DUMMY_USERS[3].avatar" 
+      [name]="DUMMY_USERS[3].name" (selectedUser)="userSelected($event)"></app-user>
     </li>
   </ul>
+
+
+  <app-tasks [selectedUser]="getUser.name"></app-tasks>
 </main>
