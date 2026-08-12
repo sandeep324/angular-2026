@@ -5,6 +5,12 @@ import { UserComponent } from "./user/user.component";
 import { DUMMY_USERS } from './dummy-users';
 import { TasksComponent } from './tasks/tasks.component';
 
+interface User{
+  id:string;
+  avatar:string;
+  name:string;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -17,14 +23,14 @@ export class AppComponent {
   DUMMY_USERS = DUMMY_USERS;
 
 
- selectedUser: any = "u1";
+ selectedUser!: User;
 
- userSelected(id: string) {
-   this.selectedUser = id;
+ userSelected(user: User) {
+   this.selectedUser = user;
 }
 
 get getUser(){
-  return DUMMY_USERS.find(user => user.id === this.selectedUser) !;
+  return DUMMY_USERS.find(user => user.id === this.selectedUser.id) !;
 }
 
 

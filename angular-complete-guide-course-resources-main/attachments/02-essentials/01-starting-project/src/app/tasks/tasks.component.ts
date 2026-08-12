@@ -1,5 +1,11 @@
 import { Component, Input } from '@angular/core';
 
+
+interface User{
+  id:string;
+  avatar:string;
+  name:string;
+}
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -9,6 +15,6 @@ import { Component, Input } from '@angular/core';
 })
 export class TasksComponent {
 
-  @Input({required:true}) selectedUser!: string;
+  @Input({required:true}) selectedUser!: User;
 
 }

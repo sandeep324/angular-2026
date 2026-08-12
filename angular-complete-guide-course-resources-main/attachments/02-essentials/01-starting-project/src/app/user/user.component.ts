@@ -1,6 +1,11 @@
 import { Component, computed, EventEmitter, Input, Output, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 
+interface User{
+  id:string;
+  avatar:string;
+  name:string;
+}
 
 @Component({
   selector: 'app-user',
@@ -12,18 +17,17 @@ import { DUMMY_USERS } from '../dummy-users';
 export class UserComponent {
 
  
-  @Input({required:true}) id!:string;
-  @Input({required:true}) avatar!:string;
-  @Input({required:true}) name !: string;
+  @Input({required:true}) user!:User;
 
-  @Output() selectedUser = new EventEmitter<string>();
+
+  @Output() selectedUser = new EventEmitter<User>();
 
   get userPath(){
-    return "assets/users/" + this.avatar;
+    return "assets/users/" + this.user.avatar;
   }
 
   onUserSelected() {
-    this.selectedUser.emit(this.id);
+    this.selectedUser.emit(this.user);
   }
 
 }
